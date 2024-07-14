@@ -1,0 +1,26 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+      {
+          "Effect": "Deny",
+          "Action": [
+              "sts:GetCallerIdentity",
+              "iam:ListAccountAliases"
+          ],
+          "Resource": "*"
+      },
+      {
+          "Effect": "Allow",
+          "Action": "*",
+          "Resource": "*",
+          "Condition": {
+              "DateGreaterThan": {
+                  "aws:CurrentTime": "2024-07-08T00:00:00Z"
+              },
+              "DateLessThan": {
+                  "aws:CurrentTime": "2024-08-18T23:59:59Z"
+              }
+          }
+      }
+  ]
+}
